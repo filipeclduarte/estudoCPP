@@ -6,9 +6,27 @@
 #include <memory>
 
 void populateRandomArray(int *arr, int size){
-    for(int i = 0; i < size; i++){
+    for (int i = 0; i < size; i++){
         arr[i] = (std::rand() % 100 ) + 1;
     }
+}
+
+void populateRandomMat(int *arr, int rows, int cols){
+//    int size = rows * cols;
+    for (int i = 0; i < rows; i++){
+        for (int j = 0; j < cols; j++){
+            arr[i * cols + j] = (std::rand() % 100 ) + 1;
+        }
+    }
+}
+
+int* sum(int *x, int *y, int size){
+    int* arr = new int[size];
+    for(int i = 0; i < size; i++)
+    {
+        arr[i] = x[i] + y[i];
+    }
+    return arr;
 }
 
 int main(){
@@ -123,6 +141,51 @@ int main(){
     delete [] myRandomArray;
     myRandomArray = NULL;
 
+    // randomMat
+    int rowsM;
+    int colsM;
+    std::cout << "Qual o tamanho da Matriz aleatória? ";
+    std::cout << "Linhas: ";
+    std::cin >> rowsM;
+    std::cout << "Colunas: ";
+    std::cin >> colsM;
+
+    int *myRandomMat = new int[rowsM * colsM];
+    populateRandomMat(myRandomMat, rowsM, colsM);
+
+    // mostrar randomMat
+    for(int i = 0; i < rowsM; i++)
+    {
+        for (int j = 0; j < colsM; j++)
+        {
+            std::cout << myRandomMat[i * colsM + j] << "  ";
+//            std::cout << *(myRandomArray + i) << "  ";
+        }
+    }
+    // deletar
+    delete [] myRandomMat;
+    myRandomMat = NULL;
+
+
+    // testando soma de arrays
+    std::cout << "\nIniciando soma de arrays" << std::endl;
+    int *x = new int[size];
+    populateRandomArray(x, size);
+    int *y = new int[size];
+    populateRandomArray(y, size);
+    int *z = sum(x, y, size);
+    // mostrar x, y e z
+    for(int i = 0; i < size; i++)
+    {
+        std::cout << "x[" << i << "] = " << x[i] << " + " << "y[" << i << "] = " << y[i] << " = " << z[i] << std::endl;
+    }
+
+    delete [] x;
+    x = NULL;
+    delete [] y;
+    y = NULL;
+    delete [] z;
+    z = NULL;
 
     return 0;
 }
