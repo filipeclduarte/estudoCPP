@@ -3,6 +3,7 @@
 //
 
 #include <iostream>
+#include <memory>
 
 int main(){
 
@@ -57,6 +58,24 @@ int main(){
 
     delete [] myMat;
     myMat = NULL;
+
+    // utilizando smart pointers - quando sai do escopo, deleta-se o ponteiro.
+    std::cout << "Utilizando smart pointer" << std::endl;
+    std::unique_ptr<int[]> myArray2(new int[size]);
+    // preencher os valores
+    for(int i = 0; i < size; i++)
+    {
+        std::cout << "Array[" << i << "] ";
+        std::cin >> myArray2[i];
+    }
+    // printar
+    for(int i = 0; i < size; i++)
+    {
+        std::cout << myArray2[i] << "  ";
+    }
+
+
+
 
     return 0;
 }
