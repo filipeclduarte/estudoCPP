@@ -5,6 +5,12 @@
 #include <iostream>
 #include <memory>
 
+void populateRandomArray(int *arr, int size){
+    for(int i = 0; i < size; i++){
+        arr[i] = (std::rand() % 100 ) + 1;
+    }
+}
+
 int main(){
 
     std::cout << "Iniciando o programa!" << std::endl;
@@ -78,7 +84,7 @@ int main(){
 
     std::cout << "Iniciando matriz com smart pointer" << std::endl;
     // usando smart pointer para matriz
-    std::unique_ptr<int[]> myMat2(new int[rows * cols]);2
+    std::unique_ptr<int[]> myMat2(new int[rows * cols]);
 
 
     // preencher os valores
@@ -99,7 +105,24 @@ int main(){
         }
     }
 
-    
+    // utilizando funcao populateRandomArray
+    // criando array dinamica
+    int sizeRandom;
+    std::cout << "Qual o tamanho da Array aleatória? ";
+    std::cin >> sizeRandom;
+    int *myRandomArray = new int[sizeRandom];
+    populateRandomArray(myRandomArray, sizeRandom);
+
+    // mostrar randomarray
+    for(int i = 0; i < sizeRandom; i++)
+    {
+        std::cout << myRandomArray[i] << "  ";
+//        std::cout << *(myRandomArray + i) << "  ";
+    }
+    // deletar
+    delete [] myRandomArray;
+    myRandomArray = NULL;
+
 
     return 0;
 }
