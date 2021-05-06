@@ -64,6 +64,25 @@ std::array<T, N> pow(const std::array<T, N>& x, const double& y){
     return res;
 }
 
+template<typename T, size_t N>
+std::array<T, N> exp(const std::array<T, N>& x){
+    std::array<T, N> res;
+    for (int i = 0; i < x.size(); i++){
+        res[i] = std::exp(x[i]);
+    }
+    return res;
+}
+
+template<typename T, size_t N>
+T sum(const std::array<T, N> &x){
+    return std::accumulate(x.begin(), x.end(), 0.0);
+}
+
+template<typename T, size_t N>
+T prod(const std::array<T, N> &x){
+    return std::accumulate(x.begin(), x.end(), 1.0, std::multiplies<T>());
+}
+
 // estatisticas
 template<typename T, size_t N>
 T mean(const std::array<T, N> &x){
@@ -80,6 +99,19 @@ T variance(const std::array<T, N> &x){
 template<typename T, size_t N>
 T stD(const std::array<T, N> &x){
     return std::sqrt(variance(x));
+}
+
+template<typename T, size_t N>
+std::vector<std::vector<T> > seriesToSupervised(const std::array<T, N> &x, int nInputs){
+    int nRows = x.size() - nInputs + 1;
+    std::vector<std::vector<T> > res(nRows, std::vector<T>(nInputs, 0));
+    for (int i = 0; i < nRows; i++){
+        for (int j = 0; j < nInputs; j++){
+            res[i][j] = x[i + j];
+        }
+    }
+    return res;
+
 }
 
 
@@ -142,7 +174,20 @@ int main(){
     std::cout << "Média de X2: " << mediaX2 << std::endl;
     std::cout << "Variância de X2: " << varX2 << std::endl;
     std::cout << "Desvio padrão de X2: " << stdX2 << std::endl;
+    int inputs = 10;
+    int nRows = X2.size() - inputs + 1;
+    std::vector<std::vector<double> > X2series = seriesToSupervised(X2, inputs);
+
+    for (int i = 0; i < nRows; i++){
+        for (int j = 0; j < inputs; j++){
+            // Prints ' ' if j != n-1 else prints '\n'          
+            std::cout << X2series[i][j] << " \n"[j == inputs-1];
+
+        }
+    }
     
+    double produto = prod(X2);
+    std::cout << "Produto de X2: " << produto << std::endl;
     
     return 0;
 }
