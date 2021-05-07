@@ -1,5 +1,4 @@
-# estudoCPP
-Estudo C++
+# Estudo C++
 
 Material utilizado para estudar C++ para computação científica e machine learning.
 
