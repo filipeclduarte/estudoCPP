@@ -5,6 +5,7 @@
 #include <chrono>
 #include <numeric>
 
+
 template<typename T, size_t N>
 void randomArray(std::array<T, N> &arr, unsigned seed){
     std::default_random_engine generator (seed);
@@ -229,8 +230,11 @@ int main(){
     double produto = prod(X2);
     std::cout << "Produto de X2: " << produto << std::endl;
 
-    double produto2 = prod(X2 + 1.0);
+    std::array<double, 100> X2p = X2 + 1.0;
+    double produto2 = prod(X2p);
     std::cout << "Produto de X2 + 1.0: " << produto2 << std::endl;
     
+
+
     return 0;
 }
