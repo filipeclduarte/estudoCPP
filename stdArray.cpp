@@ -26,11 +26,31 @@ std::array<T, N> operator+(const std::array<T, N>& x, const std::array<T, N>& y)
 }
 
 template<typename T, size_t N>
+std::array<T, N> operator+(const std::array<T, N>& x, const T y){
+    // assert(x.size() == y.size());
+    std::array<T, N> res;
+    for (int i = 0; i < x.size(); i++){
+        res[i] = x[i] + y;
+    }
+    return res;
+}
+
+template<typename T, size_t N>
 std::array<T, N> operator-(const std::array<T, N>& x, const std::array<T, N>& y){
     // assert(x.size() == y.size());
     std::array<T, N> res;
     for (int i = 0; i < x.size(); i++){
         res[i] = x[i] - y[i];
+    }
+    return res;
+}
+
+template<typename T, size_t N>
+std::array<T, N> operator-(const std::array<T, N>& x, const T y){
+    // assert(x.size() == y.size());
+    std::array<T, N> res;
+    for (int i = 0; i < x.size(); i++){
+        res[i] = x[i] - y;
     }
     return res;
 }
@@ -46,11 +66,31 @@ std::array<T, N> operator*(const std::array<T, N>& x, const std::array<T, N>& y)
 }
 
 template<typename T, size_t N>
+std::array<T, N> operator*(const std::array<T, N>& x, const T y){
+    // assert(x.size() == y.size());
+    std::array<T, N> res;
+    for (int i = 0; i < x.size(); i++){
+        res[i] = x[i] * y;
+    }
+    return res;
+}
+
+template<typename T, size_t N>
 std::array<T, N> operator/(const std::array<T, N>& x, const std::array<T, N>& y){
     // assert(x.size() == y.size());
     std::array<T, N> res;
     for (int i = 0; i < x.size(); i++){
         res[i] = x[i] + y[i];
+    }
+    return res;
+}
+
+template<typename T, size_t N>
+std::array<T, N> operator/(const std::array<T, N>& x, const T y){
+    // assert(x.size() == y.size());
+    std::array<T, N> res;
+    for (int i = 0; i < x.size(); i++){
+        res[i] = x[i] / y;
     }
     return res;
 }
@@ -188,6 +228,9 @@ int main(){
     
     double produto = prod(X2);
     std::cout << "Produto de X2: " << produto << std::endl;
+
+    double produto2 = prod(X2 + 1.0);
+    std::cout << "Produto de X2 + 1.0: " << produto2 << std::endl;
     
     return 0;
 }
