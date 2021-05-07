@@ -1,7 +1,7 @@
 # estudoCPP
 Estudo C++
 
-Material utilizado para estudar C++ para computação científica.
+Material utilizado para estudar C++ para computação científica e machine learning.
 
 Aprendendo:
 
