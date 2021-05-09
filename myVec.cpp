@@ -38,3 +38,12 @@ double myVector::stDev(){
     double var = myVector::var();
     return std::sqrt(var);
 }
+
+myVector myVector::operator+(const myVector& x){
+    int s = myVector::size();
+    myVector res(s);
+    for(int i = 0; i < s; i++){
+        res[i] = myVector::elem[i] + x.elem[i];
+    }
+    return res;
+};

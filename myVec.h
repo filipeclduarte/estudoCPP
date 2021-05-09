@@ -7,6 +7,7 @@ public:
     double mean();
     double var();
     double stDev();
+    myVector operator+(const myVector& x);
 
 private:
     double* elem;
