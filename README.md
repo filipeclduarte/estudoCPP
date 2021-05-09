@@ -10,6 +10,7 @@ Aprendendo:
 * ponteiros
 * smart pointers
 * eigen (biblioteca para computação científica)
+* OOP
 
 Material de estudo: 
 
