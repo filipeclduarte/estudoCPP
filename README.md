@@ -14,9 +14,11 @@ Aprendendo:
 
 Material de estudo: 
 
+* The C++ Programmingn Language
 * C++ Primer
 * Discovering Modern C++: An Intensive Course for Scientists, Engineers, and Programmers
 * Guide to Scientific Computing in C++
 * C++ for Financial Mathematics
 * Hands-On Machine Learning with C++: Build, train, and deploy end-to-end machine learning and deep learning pipelines
 * Eigen: https://eigen.tuxfamily.org/dox/
+* Machine Learning em Python e C++
