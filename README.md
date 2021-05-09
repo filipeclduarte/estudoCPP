@@ -11,6 +11,7 @@ Aprendendo:
 * smart pointers
 * eigen (biblioteca para computação científica)
 * OOP
+* Operator overloading
 
 Material de estudo: 
 
